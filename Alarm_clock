@@ -11,10 +11,13 @@ def Alarm(set_alarm_timer):
         cur_date = actual_time.strftime("%d/%m/%Y")
         msg = "Current Time: " + str(cur_time)
         print(msg)
+
         if cur_time == set_alarm_timer:
+            print("its alarm time")
             for i in range(10):
                 winsound.PlaySound("sound.wav", winsound.SND_FILENAME)
             break
+
 def get_alarm_time():
     alarm_set_time = f"{hour.get()}:{min.get()}:{sec.get()}"
     Alarm(alarm_set_time)
@@ -37,4 +40,7 @@ secTime = Entry(window, textvariable=sec, bg="#48C9B0", width=4, font=(20)).plac
 submit = Button(window, text="Set Your Alarm", fg="Black", bg="#D4AC0D", width=15, command=get_alarm_time,
                 font=(20)).place(x=100, y=80)
 window.mainloop()
+
+
+
 
