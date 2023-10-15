@@ -13,9 +13,8 @@ def Alarm(set_alarm_timer):
         print(msg)
         if cur_time == set_alarm_timer:
             for i in range(10):
-             winsound.Beep(1000,1000)
+                winsound.PlaySound("sound.wav", winsound.SND_FILENAME)
             break
-
 def get_alarm_time():
     alarm_set_time = f"{hour.get()}:{min.get()}:{sec.get()}"
     Alarm(alarm_set_time)
@@ -26,7 +25,6 @@ window.geometry("400x160")
 window.config(bg="black")
 window.resizable(width=False, height=False)
 addTime = Label(window, text="Hour     Min     Sec", font=60, fg="white", bg="black").place(x=100)
-
 
 hour = StringVar()
 min = StringVar()
@@ -39,3 +37,4 @@ secTime = Entry(window, textvariable=sec, bg="#48C9B0", width=4, font=(20)).plac
 submit = Button(window, text="Set Your Alarm", fg="Black", bg="#D4AC0D", width=15, command=get_alarm_time,
                 font=(20)).place(x=100, y=80)
 window.mainloop()
+
